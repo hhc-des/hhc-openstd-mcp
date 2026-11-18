@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hhc-openstd-mcp"
+version = "0.1.0"
+description = "MCP server for searching and downloading Chinese national standards (国家标准全文公开系统)"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "fastmcp>=2.0",
+    "openstd-spider",
+]
+
+[project.scripts]
+hhc-openstd-mcp = "hhc_openstd_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hhc_openstd_mcp"]
